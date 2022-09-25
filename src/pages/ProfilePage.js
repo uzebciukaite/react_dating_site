@@ -49,6 +49,7 @@ useEffect(()=> {
 
     if(picturesCheck && filterCheck){
         setCanSwipe(true)
+        socket.emit("swipe_users", "canswipe")
         socket.on("user_filterset", (data) => {
         setUsersSwipe(data)
         console.log("received from profile")
