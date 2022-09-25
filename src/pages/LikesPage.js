@@ -32,7 +32,10 @@ socket.emit("swipe_users", "canswipe")
       className="my-3 tab fs-5"
       justify
     >
-      <Tab eventKey="yourlikes" title='People who you liked'>
+      <Tab 
+      eventKey="yourlikes" 
+      title={`People who you liked  ${logedinUser.userlikes.length > 0? `( ${logedinUser.userlikes.length} )` : "" } `}>
+      
         <div className='flex-center gap-3 flex-wrap py-4'>
           
         {logedinUser.userlikes.length > 0 ? (
@@ -44,7 +47,10 @@ socket.emit("swipe_users", "canswipe")
         </div>
         
       </Tab>
-      <Tab eventKey="profile" title="People who liked you">
+      <Tab eventKey="profile"
+       
+       title={`People who liked you  ${logedinUser.userlikedby.length > 0? `( ${logedinUser.userlikedby.length} )` : "" } `}>
+       
         <div className='flex-center gap-3 flex-wrap py-4'>
         
         {logedinUser.userlikedby.length > 0 ? (
