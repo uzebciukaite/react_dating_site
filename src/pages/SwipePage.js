@@ -18,7 +18,7 @@ const SwipePage = ({}) => {
      
     socket.on("user_filterset", (data) => {
     setUsersSwipe(data)
-    console.log("received from swipe")
+    
     })
     socket.on("likes_added", (data) => {
         setLogedinUser(data.userInfo)
@@ -39,7 +39,7 @@ const SwipePage = ({}) => {
   },[usersSwipe])
 
   useEffect(()=> {
-    console.log(currentIndex)
+    
     if(currentIndex >= 0){
       setCanSwipe(true)
     } 
@@ -110,7 +110,7 @@ const swiped = (direction, user, index) => {
        fetch("http://localhost:4000/addlikes", options)
       .then(res => res.json())
       .then((data) => {        
-        console.log(data.message)
+        
         socket.emit("send_likes", userInfo)
         
       })

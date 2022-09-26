@@ -1,12 +1,10 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Container } from 'react-bootstrap'
 import { MdNavigateBefore, MdNavigateNext} from "react-icons/md"
-import mainContext from '../context/mainContext'
+
 
 const PhotoSlider = ({photos}) => {
-    // const {logedinUser} = useContext(mainContext)    
-    
-    // const photos = logedinUser.userphotos
+   
     
     const [photoIndex, setPhotoIndex] = useState(0)
 

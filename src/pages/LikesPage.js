@@ -11,7 +11,6 @@ const {logedinUser, setLogedinUser, socket} = useContext(mainContext)
   useEffect(()=> {
     socket.on("likes_added", (data) => {
             setLogedinUser(data.userInfo)
-            console.log("came from likes added in like page")
         })    
   },[socket])
 

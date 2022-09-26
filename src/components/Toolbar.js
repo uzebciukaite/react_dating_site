@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import {Navbar, Nav, Container, Button} from 'react-bootstrap'
 import mainContext from '../context/mainContext'
@@ -7,7 +7,7 @@ import mainContext from '../context/mainContext'
 
 const Toolbar = () => {
 
-const {logedinUser, setLogedinUser, canSwipe, setCanSwipe, socket} = useContext(mainContext)  
+const {logedinUser, setLogedinUser, canSwipe, setCanSwipe} = useContext(mainContext)  
 const nav = useNavigate()
 
 function loguserout(){
@@ -26,14 +26,10 @@ function loguserout(){
       fetch('http://localhost:4000/logout', options)
         .then(res => res.json())
         .then(data => {
-          
-          if(!data.error) {
-            localStorage.setItem("autologin", "false")
-            
-                }
-            })      
+          console.log(data.message)
+        })      
         } 
-  
+  localStorage.setItem("autologin", "false")
   setLogedinUser(null)
   setCanSwipe(false)
   nav("/")

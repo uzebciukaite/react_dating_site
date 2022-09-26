@@ -28,6 +28,8 @@ useEffect(()=> {
             setLogedinUser(data.userInfo)
         }) 
 
+        console.log(logedinUser)
+
     },[socket])
 
 

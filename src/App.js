@@ -27,10 +27,8 @@ const [usersSwipe, setUsersSwipe] = useState([])
   socket.on("user_connected", (data) => {
     setLogedinUser(data.userInfo)
     }) 
-
     },[socket])
 
-    
 
 
   return (

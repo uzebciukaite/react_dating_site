@@ -5,7 +5,7 @@ import mainContext from '../context/mainContext'
 
 const Login = () => {
 
-const {setLogedinUser, logedinUser, socket} = useContext(mainContext) 
+const {socket} = useContext(mainContext) 
 const [staylogged, setStaylogged] = useState(false)
 const userLogRef = useRef()
 const passLogRef = useRef()
@@ -52,7 +52,6 @@ const validateUser = () => {
 
     useEffect(() => {
         const autologin = localStorage.getItem("autologin")
-        console.log(autologin)
         if(autologin === "true") {
             const options = {
                 method: "GET",
@@ -67,7 +66,7 @@ const validateUser = () => {
                 .then(data => {
                   
                   if(!data.error) {
-                        socket.emit("connect_user", data.result)
+                        socket.emit("connect_user", data.user)
                         nav('/profile')
                     }
                     
@@ -106,9 +105,12 @@ const validateUser = () => {
          {message !== "" ? <p className='fs-5 text-light'>{message}</p> : <p></p>}    
         
         </div>
+    
+        
 <div className='flex-center gap-4 mediaColumn'>Don't have an account? 
   <Button className='btn-grad' as={Link} to="/register">Register</Button>
 </div>
+
     </Container> 
   )
 }
