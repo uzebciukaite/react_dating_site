@@ -95,9 +95,10 @@ input[type="password"]{
 }
 
 .profilePhoto {
-  height: 100%;
-  max-height: 350px;
+  height: 300px;
   max-width: 320px;
+  background-position: center;
+  background-size: cover;
 }
 
 
